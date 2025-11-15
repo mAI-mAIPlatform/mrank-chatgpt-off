@@ -32,8 +32,7 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      background:
-        radial-gradient(150% 200% at 0% 0%, #0b1120 0, #020617 40%, #000 100%);
+      background: radial-gradient(150% 200% at 0% 0%, #0b1120 0, #020617 40%, #000 100%);
       color: var(--text-main);
     }
 
@@ -51,10 +50,6 @@
       box-shadow:
         0 30px 100px rgba(0, 0, 0, 0.9),
         0 0 0 1px rgba(15, 23, 42, 0.9) inset;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      min-height: 0;
     }
 
     .header {
@@ -73,7 +68,7 @@
       gap: 6px;
     }
 
-    .header-left h1 span.badge {
+    .header-left h1 .badge {
       font-size: 0.7rem;
       font-weight: 600;
       padding: 2px 8px;
@@ -129,24 +124,16 @@
       grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1.1fr);
       gap: 16px;
       align-items: stretch;
-      height: 100%;
-      min-height: 0;
     }
 
-            .panel {
+    .panel {
       border-radius: 20px;
       padding: 14px 14px 16px;
-      background: linear-gradient(
-          135deg,
-          rgba(15, 23, 42, 0.9),
-          rgba(15, 23, 42, 0.7)
-        );
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
       border: 1px solid var(--glass-border);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
       display: flex;
       flex-direction: column;
-      height: 100%;
-      min-height: 0;
     }
 
     .panel-header {
@@ -180,8 +167,6 @@
       color: #e5e7eb;
     }
 
-    /* Top list */
-
     .top-list-header {
       display: grid;
       grid-template-columns: auto auto minmax(0, 1.6fr) minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -209,17 +194,10 @@
       align-items: center;
       padding: 8px 10px;
       border-radius: 14px;
-      background:
-        linear-gradient(135deg,
-          rgba(15, 23, 42, 0.96),
-          rgba(30, 64, 175, 0.35));
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.35));
       border: 1px solid rgba(129, 140, 248, 0.55);
       cursor: grab;
-      transition:
-        transform 0.12s ease-out,
-        box-shadow 0.12s ease-out,
-        border-color 0.12s ease-out,
-        background 0.12s ease-out;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s ease-out, background 0.12s ease-out;
     }
 
     .row.dragging {
@@ -238,10 +216,7 @@
     .row.selected {
       border-color: var(--accent);
       box-shadow: 0 0 0 1px var(--accent-soft);
-      background:
-        linear-gradient(135deg,
-          rgba(15, 23, 42, 0.95),
-          rgba(56, 189, 248, 0.28));
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(56, 189, 248, 0.28));
     }
 
     .rank-chip {
@@ -286,8 +261,6 @@
       color: var(--text-muted);
     }
 
-    /* Catalog */
-
     .catalog-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -318,8 +291,7 @@
       font-size: 0.75rem;
       color: var(--text-muted);
       cursor: pointer;
-      transition: background 0.12s ease-out, border-color 0.12s ease-out,
-        color 0.12s ease-out;
+      transition: background 0.12s ease-out, border-color 0.12s ease-out, color 0.12s ease-out;
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -351,8 +323,7 @@
       row-gap: 4px;
       align-items: center;
       cursor: pointer;
-      transition: background 0.12s ease-out, border-color 0.12s ease-out,
-        transform 0.08s ease-out;
+      transition: background 0.12s ease-out, border-color 0.12s ease-out, transform 0.08s ease-out;
       font-size: 0.82rem;
     }
 
@@ -400,15 +371,6 @@
 
     .footer span strong {
       color: #e5e7eb;
-    }
-
-    .link {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .link:hover {
-      text-decoration: underline;
     }
 
     @media (max-width: 900px) {
@@ -489,13 +451,12 @@
           Sauvegarde automatique (localStorage)
         </div>
         <div class="pill pill-secondary">
-          Sélectionner une ligne &rarr; cliquer sur une app du catalogue
+          Sélectionner une ligne → cliquer sur une app du catalogue
         </div>
       </div>
     </header>
 
     <section class="layout">
-      <!-- Bloc classement -->
       <section class="panel">
         <div class="panel-header">
           <div>
@@ -524,7 +485,6 @@
         </p>
       </section>
 
-      <!-- Bloc catalogue -->
       <aside class="panel">
         <div class="panel-header">
           <div>
@@ -560,296 +520,281 @@
   </main>
 
   <script>
-    // --- Config générale ---
     const STORAGE_KEY = "mrank_state_v1";
-
-    const DEFAULT_ROWS = 15;
+    const ROW_COUNT = 15;
 
     const catalogApps = [
-      // IA & outils
       {
         name: "ChatGPT",
         version: "1.2025.301",
         developer: "OpenAI",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Sora",
         version: "2.0",
         developer: "OpenAI",
-        category: "productivite",
+        category: "productivite"
       },
-            {
+      {
         name: "mAI",
         version: "5.0",
         developer: "mAIDevlopers",
-        category: "productivite",
+        category: "productivite"
       },
-
       {
         name: "mWriter",
         version: "2.0.1",
         developer: "mDevlopers",
-        category: "productivite",
+        category: "productivite"
       },
-
-      // Productivité & cloud
       {
         name: "Notion",
         version: "3.0",
         developer: "Notion Labs, Inc.",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Google Drive",
         version: "4.2545.11601",
         developer: "Google LLC",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Gmail",
         version: "6.0.251103",
         developer: "Google LLC",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Google Maps",
         version: "25.45.1",
         developer: "Google LLC",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Microsoft Outlook",
         version: "4.2508.0",
         developer: "Microsoft Corporation",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Microsoft OneDrive",
         version: "16.91.1",
         developer: "Microsoft Corporation",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Slack",
         version: "24.10.20",
         developer: "Slack Technologies, LLC",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Trello",
         version: "2025.1",
         developer: "Trello, Inc.",
-        category: "productivite",
+        category: "productivite"
       },
-
-      // Social / communication
       {
         name: "WhatsApp Messenger",
         version: "25.28.75",
         developer: "WhatsApp Inc.",
-        category: "social",
+        category: "social"
       },
       {
         name: "Instagram",
         version: "406.1.0",
         developer: "Meta Platforms, Inc.",
-        category: "social",
+        category: "social"
       },
       {
         name: "TikTok",
         version: "42.5.0",
         developer: "TikTok Ltd.",
-        category: "social",
+        category: "social"
       },
       {
         name: "Snapchat",
         version: "13.66.1.0",
         developer: "Snap Inc.",
-        category: "social",
+        category: "social"
       },
       {
         name: "Discord",
         version: "304.0",
         developer: "Discord Inc.",
-        category: "social",
+        category: "social"
       },
       {
         name: "Facebook",
         version: "500.0",
         developer: "Meta Platforms, Inc.",
-        category: "social",
+        category: "social"
       },
       {
         name: "Messenger",
         version: "500.0",
         developer: "Meta Platforms, Inc.",
-        category: "social",
+        category: "social"
       },
       {
         name: "Telegram",
         version: "11.0",
         developer: "Telegram FZ-LLC",
-        category: "social",
+        category: "social"
       },
       {
-        name: "X (Twitter)",
+        name: "X",
         version: "10.45",
         developer: "X Corp.",
-        category: "social",
+        category: "social"
       },
       {
         name: "Reddit",
         version: "2025.1",
         developer: "Reddit, Inc.",
-        category: "social",
+        category: "social"
       },
-
-      // Vidéo & audio
       {
         name: "YouTube",
         version: "20.45.3",
         developer: "Google LLC",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "YouTube Music",
         version: "8.45",
         developer: "Google LLC",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Spotify",
         version: "9.0.96",
         developer: "Spotify AB",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Netflix",
         version: "16.0.0",
         developer: "Netflix, Inc.",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Disney+",
         version: "3.20.0",
         developer: "Disney",
-        category: "productivite",
+        category: "productivite"
       },
       {
         name: "Prime Video",
         version: "10.25.0",
         developer: "Amazon",
-        category: "productivite",
+        category: "productivite"
       },
-
-      // Jeux
       {
         name: "Fortnite",
         version: "38.10",
         developer: "Epic Games",
-        category: "gaming",
+        category: "gaming"
       },
       {
         name: "Brawl Stars",
         version: "64.25.1",
         developer: "Supercell",
-        category: "gaming",
+        category: "gaming"
       },
       {
         name: "Roblox",
         version: "2.698.937",
         developer: "Roblox Corporation",
-        category: "gaming",
+        category: "gaming"
       },
       {
-        name: "EA SPORTS FC 25 Companion",
-        version: "25.8.0",
-        developer: "EA Swiss Sàrl",
-        category: "gaming",
+        name: "EA SPORTS FC 26 Mobile",
+        version: "26.0.1",
+        developer: "EA Sports Inc",
+        category: "gaming"
       },
       {
         name: "Clash Royale",
         version: "5.10",
         developer: "Supercell",
-        category: "gaming",
+        category: "gaming"
       },
       {
         name: "Clash of Clans",
         version: "17.0",
         developer: "Supercell",
-        category: "gaming",
+        category: "gaming"
       },
       {
         name: "Minecraft",
         version: "1.21.50",
         developer: "Mojang Studios",
-        category: "gaming",
+        category: "gaming"
       },
       {
         name: "Genshin Impact",
         version: "5.1",
         developer: "miHoYo Limited",
-        category: "gaming",
+        category: "gaming"
       },
-
-      // Web & navigateurs
       {
         name: "Google Chrome",
         version: "142.0.7444.128",
         developer: "Google LLC",
-        category: "web",
+        category: "web"
       },
       {
         name: "Safari",
         version: "26.1",
         developer: "Apple",
-        category: "web",
+        category: "web"
       },
       {
         name: "Microsoft Edge",
         version: "142.0.2345.1",
         developer: "Microsoft Corporation",
-        category: "web",
+        category: "web"
       },
       {
         name: "Brave Browser",
         version: "1.73",
         developer: "Brave Software",
-        category: "web",
+        category: "web"
       },
       {
         name: "Opera GX",
         version: "115.0",
         developer: "Opera Software",
-        category: "web",
-      },
+        category: "web"
+      }
     ];
 
     const topList = document.getElementById("topList");
     const selectedSlotLabel = document.getElementById("selectedSlotLabel");
     const statusMessage = document.getElementById("statusMessage");
+    const catalogList = document.getElementById("catalogList");
+    const catalogSearch = document.getElementById("catalogSearch");
+    const filterChips = Array.from(document.querySelectorAll(".chip-filter"));
 
     let draggedRow = null;
     let selectedRowIndex = null;
-
-    // --- Sauvegarde / chargement ---
+    let currentFilter = "all";
 
     function saveState() {
       const rows = Array.from(topList.querySelectorAll(".row"));
-      const data = rows.map((row) => {
-        return {
-          name: row.querySelector(".name-input").value || "",
-          version: row.querySelector(".version-input").value || "",
-          developer: row.querySelector(".dev-input").value || "",
-        };
-      });
-      const payload = { rows: data };
+      const data = rows.map(row => ({
+        name: row.querySelector(".name-input").value || "",
+        version: row.querySelector(".version-input").value || "",
+        developer: row.querySelector(".dev-input").value || ""
+      }));
+
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ rows: data }));
         showStatus("Classement sauvegardé localement.");
       } catch (e) {
-        console.error("Erreur de sauvegarde", e);
         showStatus("Impossible de sauvegarder (quota localStorage ?)", true);
       }
     }
@@ -862,29 +807,26 @@
         if (!parsed || !Array.isArray(parsed.rows)) return null;
         return parsed.rows;
       } catch (e) {
-        console.warn("Impossible de charger l'état", e);
         return null;
       }
     }
 
-    function showStatus(msg, isError = false) {
-      statusMessage.textContent = msg;
+    function showStatus(message, isError) {
+      statusMessage.textContent = message;
       statusMessage.style.color = isError ? "var(--danger)" : "var(--text-muted)";
-      if (!msg) return;
+      if (!message) return;
       setTimeout(() => {
-        if (statusMessage.textContent === msg) {
+        if (statusMessage.textContent === message) {
           statusMessage.textContent = "";
         }
       }, 3000);
     }
 
-    // --- Construction des lignes ---
-
     function createRow(index, initialData) {
       const row = document.createElement("div");
       row.className = "row";
       row.draggable = true;
-      row.dataset.index = index.toString();
+      row.dataset.index = String(index);
 
       row.innerHTML = `
         <span class="rank-chip">Top ${index + 1}</span>
@@ -900,18 +842,16 @@
         row.querySelector(".dev-input").value = initialData.developer || "";
       }
 
-      row.addEventListener("click", (e) => {
-        if (e.target.tagName === "INPUT") {
+      row.addEventListener("click", event => {
+        if (event.target instanceof HTMLInputElement) {
           setSelectedRow(row);
           return;
         }
         setSelectedRow(row);
       });
 
-      row.querySelectorAll("input").forEach((input) => {
-        input.addEventListener("input", () => {
-          saveState();
-        });
+      row.querySelectorAll("input").forEach(input => {
+        input.addEventListener("input", saveState);
       });
 
       return row;
@@ -919,27 +859,24 @@
 
     function setSelectedRow(rowElement) {
       const rows = Array.from(topList.querySelectorAll(".row"));
-      rows.forEach((r) => r.classList.remove("selected"));
+      rows.forEach(r => r.classList.remove("selected"));
       rowElement.classList.add("selected");
-
-      const idx = rows.indexOf(rowElement);
-      selectedRowIndex = idx;
-      selectedSlotLabel.textContent = idx >= 0 ? `Top ${idx + 1}` : "Aucune";
+      const index = rows.indexOf(rowElement);
+      selectedRowIndex = index;
+      selectedSlotLabel.textContent = index >= 0 ? `Top ${index + 1}` : "Aucune";
     }
 
     function updateRanks() {
       const rows = Array.from(topList.querySelectorAll(".row"));
       rows.forEach((row, index) => {
-        const chip = row.querySelector(".rank-chip");
-        chip.textContent = `Top ${index + 1}`;
-        row.dataset.index = index.toString();
+        row.querySelector(".rank-chip").textContent = `Top ${index + 1}`;
+        row.dataset.index = String(index);
       });
 
       if (selectedRowIndex != null) {
-        const rows = Array.from(topList.querySelectorAll(".row"));
-        if (selectedRowIndex < rows.length) {
-          const row = rows[selectedRowIndex];
-          setSelectedRow(row);
+        const rowsNow = Array.from(topList.querySelectorAll(".row"));
+        if (selectedRowIndex < rowsNow.length) {
+          setSelectedRow(rowsNow[selectedRowIndex]);
         } else {
           selectedRowIndex = null;
           selectedSlotLabel.textContent = "Aucune";
@@ -950,7 +887,7 @@
     function initRows() {
       const saved = loadState();
       topList.innerHTML = "";
-      for (let i = 0; i < DEFAULT_ROWS; i++) {
+      for (let i = 0; i < ROW_COUNT; i += 1) {
         const data = saved && saved[i] ? saved[i] : null;
         const row = createRow(i, data);
         topList.appendChild(row);
@@ -959,73 +896,62 @@
       selectedSlotLabel.textContent = "Aucune";
     }
 
-    // --- Drag & drop ---
-
-    topList.addEventListener("dragstart", (e) => {
-      const row = e.target.closest(".row");
+    topList.addEventListener("dragstart", event => {
+      const row = event.target.closest(".row");
       if (!row) return;
       draggedRow = row;
       row.classList.add("dragging");
-      e.dataTransfer.effectAllowed = "move";
+      if (event.dataTransfer) {
+        event.dataTransfer.effectAllowed = "move";
+      }
     });
 
-    topList.addEventListener("dragend", (e) => {
-      const row = e.target.closest(".row");
+    topList.addEventListener("dragend", event => {
+      const row = event.target.closest(".row");
       if (row) row.classList.remove("dragging");
-      topList.querySelectorAll(".row.over").forEach((r) => r.classList.remove("over"));
+      topList.querySelectorAll(".row.over").forEach(r => r.classList.remove("over"));
       draggedRow = null;
       updateRanks();
       saveState();
     });
 
-    topList.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      const row = e.target.closest(".row");
+    topList.addEventListener("dragover", event => {
+      event.preventDefault();
+      const row = event.target.closest(".row");
       if (!row || row === draggedRow) return;
 
-      const bounding = row.getBoundingClientRect();
-      const offset = e.clientY - bounding.top;
+      const rect = row.getBoundingClientRect();
+      const offset = event.clientY - rect.top;
 
       row.classList.add("over");
-      Array.from(topList.querySelectorAll(".row")).forEach((r) => {
+      topList.querySelectorAll(".row").forEach(r => {
         if (r !== row) r.classList.remove("over");
       });
 
-      if (offset < bounding.height / 2) {
+      if (offset < rect.height / 2) {
         topList.insertBefore(draggedRow, row);
       } else {
         topList.insertBefore(draggedRow, row.nextSibling);
       }
     });
 
-    topList.addEventListener("drop", (e) => {
-      e.preventDefault();
-      topList.querySelectorAll(".row.over").forEach((r) => r.classList.remove("over"));
+    topList.addEventListener("drop", event => {
+      event.preventDefault();
+      topList.querySelectorAll(".row.over").forEach(r => r.classList.remove("over"));
       updateRanks();
       saveState();
     });
 
-    // --- Catalogue ---
-
-    const catalogList = document.getElementById("catalogList");
-    const catalogSearch = document.getElementById("catalogSearch");
-    const filterChips = Array.from(
-      document.querySelectorAll(".chip-filter")
-    );
-
-    let currentFilter = "all";
-
     function renderCatalog() {
-      const q = catalogSearch.value.trim().toLowerCase();
+      const query = catalogSearch.value.trim().toLowerCase();
       catalogList.innerHTML = "";
 
-      catalogApps.forEach((app) => {
-        const matchesFilter =
-          currentFilter === "all" || app.category === currentFilter;
+      catalogApps.forEach(app => {
+        const matchesFilter = currentFilter === "all" || app.category === currentFilter;
         const matchesSearch =
-          !q ||
-          app.name.toLowerCase().includes(q) ||
-          (app.developer && app.developer.toLowerCase().includes(q));
+          !query ||
+          app.name.toLowerCase().includes(query) ||
+          (app.developer && app.developer.toLowerCase().includes(query));
 
         if (!matchesFilter || !matchesSearch) return;
 
@@ -1058,17 +984,16 @@
 
     function applyCatalogApp(app) {
       const rows = Array.from(topList.querySelectorAll(".row"));
+      if (!rows.length) return;
 
       let targetRow = null;
+
       if (selectedRowIndex != null && rows[selectedRowIndex]) {
         targetRow = rows[selectedRowIndex];
       } else {
-        targetRow =
-          rows.find((r) => !r.querySelector(".name-input").value) || rows[0];
+        targetRow = rows.find(row => !row.querySelector(".name-input").value) || rows[0];
         setSelectedRow(targetRow);
       }
-
-      if (!targetRow) return;
 
       targetRow.querySelector(".name-input").value = app.name;
       targetRow.querySelector(".version-input").value = app.version || "";
@@ -1082,16 +1007,15 @@
       renderCatalog();
     });
 
-    filterChips.forEach((chip) => {
+    filterChips.forEach(chip => {
       chip.addEventListener("click", () => {
-        filterChips.forEach((c) => c.classList.remove("active"));
+        filterChips.forEach(c => c.classList.remove("active"));
         chip.classList.add("active");
         currentFilter = chip.dataset.filter || "all";
         renderCatalog();
       });
     });
 
-    // --- Initialisation ---
     initRows();
     renderCatalog();
   </script>
